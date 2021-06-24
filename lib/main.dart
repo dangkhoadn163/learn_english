@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'placeholder_widget.dart';
 import 'package:learn_english/tab1.dart';
 import 'package:learn_english/tab2.dart';
 import 'package:learn_english/tab3.dart';
 import 'package:learn_english/tab4.dart';
+
+import 'placeholder_widget.dart';
 
 void main() => runApp(new App());
 
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     new Tab1(),
     new Tab2(),
-    PlaceholderWidget(Colors.green),
+    new Tab3(),
     PlaceholderWidget(Colors.amber),
     PlaceholderWidget(Colors.black)
   ];
@@ -96,8 +97,10 @@ class _HomeState extends State<Home> {
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.white,
         type: BottomNavigationBarType.fixed,
-        onTap: onTabTapped, // new
-        currentIndex: _currentIndex, // new
+        onTap: onTabTapped,
+        // new
+        currentIndex: _currentIndex,
+        // new
         items: [
           new BottomNavigationBarItem(
             icon: Icon(Icons.home),
