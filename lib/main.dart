@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     new Tab1(),
-    PlaceholderWidget(Colors.deepOrange),
+    new Tab2(),
     PlaceholderWidget(Colors.green),
     PlaceholderWidget(Colors.amber),
     PlaceholderWidget(Colors.black)
