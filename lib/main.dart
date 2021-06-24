@@ -1,13 +1,67 @@
 import 'package:flutter/material.dart';
-
 import 'placeholder_widget.dart';
+import 'package:learn_english/tab1.dart';
+import 'package:learn_english/tab2.dart';
+import 'package:learn_english/tab3.dart';
+import 'package:learn_english/tab4.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(new App());
 
+//MyApp
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final tabController = new DefaultTabController(
+        length: 5,
+        child: new Scaffold(
+          appBar: new AppBar(
+              title: new Text("Tab bar"),
+              bottom: new TabBar(
+                  indicatorColor: Colors.red,
+                  indicatorWeight: 2,
+                  tabs: [
+                    new Tab(
+                      icon: Icon(Icons.home),
+                      text: "Home",
+                    ),
+                    new Tab(
+                      icon: Icon(Icons.settings),
+                      text: "Setting",
+                    ),
+                    new Tab(
+                      icon: Icon(Icons.book),
+                      text: "Book",
+                    ),
+                    new Tab(
+                      icon: Icon(Icons.mail),
+                      text: "Mail",
+                    ),
+                    new Tab(
+                      icon: Icon(Icons.account_circle),
+                      text: "Account",
+                    )
+                  ])),
+          body: new TabBarView(children: [
+            new Tab1(),
+            new Tab2(),
+            new Tab3(),
+            new Tab4(),
+            new Tab4()
+          ]),
+        ));
+    return new MaterialApp(
+      title: "Tabs",
+      home: tabController,
+    );
+  }
+}
+
+//App
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'My Flutter App',
       home: Home(),
     );
   }
@@ -23,7 +77,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    new Tab1(),
     PlaceholderWidget(Colors.deepOrange),
     PlaceholderWidget(Colors.green),
     PlaceholderWidget(Colors.amber),
