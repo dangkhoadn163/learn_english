@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     new Tab1(),
     new Tab2(),
-    new Tab3(fetchAlbum(),),
+    new Tab3(fetchProfile(),),
     Tab4(products: fetchProducts(),),
     PlaceholderWidget(Colors.black)
   ];

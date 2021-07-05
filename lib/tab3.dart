@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 import 'Profile.dart';
 
-Future<Profile> fetchAlbum() async {
+Future<Profile> fetchProfile() async {
   final response = await http
       .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/1'));
 
@@ -17,21 +17,21 @@ Future<Profile> fetchAlbum() async {
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load profile');
   }
 }
 
 class Tab3 extends StatelessWidget {
-  Future<Profile> futureAlbum = fetchAlbum();
+  Future<Profile> futureProfile = fetchProfile();
 
-  Tab3(Future<Profile> fetchAlbum, {Key key}) : super(key: key);
+  Tab3(Future<Profile> fetchProfile, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: FutureBuilder<Profile>(
-          future: futureAlbum,
+          future: futureProfile,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               // return Text(snapshot.data.title);
